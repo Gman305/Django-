@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cake Shop</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}"/>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand text-danger" style="margin-left: 80px" href="#">Cakery&Bakery</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav" style="margin-left: 1000px">
+        <a class="nav-link " aria-current="page" href="#">Home</a>
+        <a class="nav-link" href="#">About</a>
+        <a class="nav-link active" href="add-cake/">Add</a>
+          <a class="nav-link" href="#">Pricing</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid bg-danger p-5">
+    <div class="row">
+        <div class="col p-5">
+        <h1 class="text-light">
+            Explore the wonderland of tastes!
+        </h1>
+        <p class="text-light">
+            Assignment for HCI exam for January 2025
+        </p>
+        <div class="d-flex">
+            <button class="btn btn-light">Get Started</button>
+            <button class="btn btn-outline-light ms-3 text-light">Learn More</button>
+        </div>
+    </div>
+        <div class="col p-3" style="margin-left: 300px">
+            <img src="{% static 'Screenshot_1.png' %}" style="height: 300px">
+    </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-body-secondary">
+    <div class="row justify-content-center p-5">
+        <p class="w-25 text-center">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+        </p>
+        <div class="container-fluid d-flex justify-content-center">
+            <img src="media/avatars/avatar.png" class="img-thumbnail" style="height: 30px;border: none">
+            <p class="text-center ms-3" style="font-weight: bold">John Doe / CEO Cakery&Bakery</p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid p-5">
+    <div class="row justify-content-center">
+        <h1 class="text-center text-danger">Products</h1>
+        <p class="text-center">Add more products in the edit form</p>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        {% for cake in cakes %}
+            <div class="card ms-3 mt-3" style="width: 18rem;">
+  <img src="{{cake.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ cake.name }}</h5>
+    <p class="card-text">{{ cake.description }}</p>
+    <p>{{ cake.baker }}</p>
+  </div>
+</div>
+        {% endfor %}
+    </div>
+</div>
+<footer class="row bg-danger justify-content-between mt-3">
+    <div class="col-6">
+        <p class="p-3 ms-3 text-light">Copyright HCI 2025</p>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+        <p class="p-3 text-light">Privacy</p>
+        <p class="p-3 text-light">Terms</p>
+        <p class="p-3 text-light">Add</p>
+    </div>
+</footer>
+</body>
+</html>

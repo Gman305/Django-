@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a cake</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}"/>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand text-danger" style="margin-left: 80px" href="#">Cakery&Bakery</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav" style="margin-left: 1000px">
+        <a class="nav-link " aria-current="page" href="#">Home</a>
+        <a class="nav-link" href="#">About</a>
+        <a class="nav-link active" href="add-cake/">Add</a>
+          <a class="nav-link" href="#">Pricing</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid justify-content-center p-5">
+    <div class="row justify-content-center">
+        <div class="col-4 justify-content-center">
+            <form method="post" action="{% url 'add-cake' %}" enctype="multipart/form-data">
+    <h1 class="text-danger text-center" style="font-weight: bold">Add new Cake</h1>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn w-100 btn-danger">Submit</button>
+</form>
+        </div>
+    </div>
+</div>
+<footer class="row bg-danger justify-content-between mt-3">
+    <div class="col-6">
+        <p class="p-3 ms-3">Copyright HCI 2025</p>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+        <p class="p-3">Privacy</p>
+        <p class="p-3">Terms</p>
+        <p class="p-3">Add</p>
+    </div>
+</footer>
+</body>
+</html>
